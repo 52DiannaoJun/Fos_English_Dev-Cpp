@@ -29,7 +29,7 @@ int main(int argc, char** argv){
         else if(i=="open" or i=="opn"){
             cout<<"file name:";
             cin>>uis1;
-            file.open(uis1,ios::in|ios::out|ios::app);
+            file.open(uis1.c_str(),ios::in|ios::out|ios::app);
             if(file.is_open()){
                 cout<<"\tOK"<<endl;
             }
@@ -40,7 +40,7 @@ int main(int argc, char** argv){
         else if(i=="newf" or i=="nwfl"){
             cout<<"file name:";
             cin>>uis1;
-            file.open(uis1,ios::trunc);
+            file.open(uis1.c_str(),ios::trunc);
             if(file.is_open()){
                 cout<<"\tOK"<<endl;
                 file.close();
@@ -48,6 +48,9 @@ int main(int argc, char** argv){
             else{
                 cout<<"\tERR:FIL CAN'T OPEN";
             }
+        }
+        else if(i=="close" or i=="clos" ){
+            file.close();
         }
         else if(i=="write" or i=="writ" or i=="wrt"){
             if(file.is_open()){
@@ -76,6 +79,23 @@ int main(int argc, char** argv){
             cout<<"dos command:";
             cin>>uic0;
             system(uic0);
+        }
+        else if(i=="clean" or i=="clan" or i=="cln"){
+            uii0=4096;
+            while(uii0>0){
+                cout<<endl;
+                uii0--;
+            }
+        }
+        else if(i=="sb"){
+            uii0=4095;
+            while(uii0>=0){
+                if(uii0%256==0){
+                    cout<<"|\n";
+                }
+                cout<<i;
+                uii0--;
+            }
         }
         else{
             cout<<" ERR:CMD"<<endl;
